@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a4d7d">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%230a4d7d'/><stop offset='100%' style='stop-color:%235b7fa8'/></linearGradient></defs><rect fill='url(%23g)' width='100' height='100' rx='20'/><text x='50' y='40' font-size='24' text-anchor='middle' fill='white' font-family='Arial'>S &amp; J</text><text x='50' y='75' font-size='32' text-anchor='middle'>💙</text></svg>">
+    <title>Ma vie 💙 My love</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Outfit:wght@300;400;500;600&display=swap');
+
+```
+    :root {
+        --ocean-deep: #0a4d7d;
+        --ocean-medium: #1a73a8;
+        --ocean-light: #4a9bcf;
+        --sky-blue: #7bb8e3;
+        --sunset-gold: #f4a460;
+        --violet-soft: #8b7fa8;
+        --cream: #f8f9fa;
+        --white: #ffffff;
+        --text-dark: #2c3e50;
+        --shadow: rgba(10, 77, 125, 0.15);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Outfit', sans-serif;
+        background: linear-gradient(135deg, #0a4d7d 0%, #1a5a8a 50%, #2d6b9e 100%);
+        min-height: 100vh;
+        color: var(--text-dark);
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            radial-gradient(circle at 30% 40%, rgba(123, 184, 227, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 70% 70%, rgba(244, 164, 96, 0.08) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    .container {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .header {
+        background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-medium));
+        padding: 50px 25px 35px;
+        text-align: center;
+        border-radius: 0 0 30px 30px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .header::before {
+        content: '🌊';
+        position: absolute;
+        font-size: 120px;
+        opacity: 0.08;
+        top: -20px;
+        right: -15px;
+        animation: wave 8s ease-in-out infinite;
+    }
+    
+    @keyframes wave {
+        0%, 100% { transform: translateX(0) rotate(0deg); }
+        50% { transform: translateX(-10px) rotate(-5deg); }
+    }
+    
+    .header h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.3em;
+        font-weight: 400;
+        color: white;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+    }
+    
+    .header p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95em;
+        font-weight: 300;
+    }
+    
+    .content {
+        flex: 1;
+        padding: 25px 18px;
+    }
+    
+    .nav-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 25px;
+        background: white;
+        padding: 6px;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px var(--shadow);
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-tab {
+        flex-shrink: 0;
+        padding: 10px 18px;
+        border: none;
+        background: transparent;
+        color: var(--text-dark);
+        border-radius: 16px;
+        cursor: pointer;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 500;
+        font-size: 0.88em;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+    
+    .nav-tab:hover {
+        background: var(--sky-blue);
+        color: white;
+    }
+    
+    .nav-tab.active {
+        background: linear-gradient(135deg, var(--ocean-medium), var(--ocean-deep));
+        color: white;
+        box-shadow: 0 3px 12px rgba(26, 115, 168, 0.4);
+    }
+    
+    .tab-content {
+        display: none;
+        animation: fadeIn 0.4s ease;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .card {
+        background: white;
+        border-radius: 20px;
+        padding: 22px;
+        margin-bottom: 18px;
+        box-shadow: 0 6px 25px var(--shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 35px rgba(10, 77, 125, 0.25);
+    }
+    
+    .card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.6em;
+        color: var(--ocean-deep);
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    
+    /* CARROUSEL PHOTOS */
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+    
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease;
+        height: 100%;
+    }
+    
+    .carousel-item {
+        min-width: 100%;
+        height: 100%;
+    }
+    
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.5);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.3em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .carousel-prev { left: 10px; }
+    .carousel-next { right: 10px; }
+    
+    .carousel-dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+    }
+    
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .carousel-dot.active {
+        background: white;
+        width: 24px;
+        border-radius: 5px;
+    }
+    
+    .countdown {
+        text-align: center;
+        padding: 28px;
+        border-radius: 18px;
+        color: white;
+        margin-bottom: 18px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .countdown.urgent {
+        background: linear-gradient(135deg, #ff6b4a, #ff8c42);
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .countdown.soon {
+        background: linear-gradient(135deg, var(--ocean-light), var(--sky-blue));
+    }
+    
+    .countdown.far {
+        background: linear-gradient(135deg, var(--ocean-medium), var(--ocean-deep));
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(255,107,74,0.4); }
+        50% { transform: scale(1.02); box-shadow: 0 8px 30px rgba(255,107,74,0.6); }
+    }
+    
+    .countdown-number {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 3.5em;
+        font-weight: 600;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .countdown-label {
+        font-size: 1.05em;
+        margin-top: 8px;
+        opacity: 0.95;
+    }
+    
+    .input-group {
+        margin-bottom: 18px;
+    }
+    
+    .input-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-dark);
+        font-weight: 500;
+        font-size: 0.92em;
+    }
+    
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #e0e7ee;
+        border-radius: 12px;
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.95em;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+    
+    .input-group input:focus,
+    .input-group textarea:focus,
+    .input-group select:focus {
+        outline: none;
+        border-color: var(--ocean-light);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(74, 155, 207, 0.1);
+    }
+    
+    .input-group textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    
+    .btn {
+        padding: 14px 26px;
+        border: none;
+        border-radius: 12px;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        font-size: 0.95em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, var(--ocean-medium), var(--ocean-deep));
+        color: white;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(26, 115, 168, 0.3);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(26, 115, 168, 0.4);
+    }
+    
+    .btn-delete {
+        background: #ffebee;
+        color: #c62828;
+        padding: 8px 14px;
+        font-size: 0.85em;
+    }
+    
+    .item-list {
+        margin-top: 18px;
+    }
+    
+    .list-item {
+        background: #f8f9fa;
+        padding: 14px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        border-left: 4px solid var(--ocean-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateX(-15px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .list-item strong {
+        color: var(--ocean-deep);
+        display: block;
+        margin-bottom: 4px;
+    }
+    
+    .message-item {
+        background: linear-gradient(135deg, #f8f9fa, #e8f4f8);
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        border-left: 4px solid var(--sunset-gold);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .message-item:hover {
+        background: linear-gradient(135deg, #e8f4f8, #d4e8f0);
+        transform: scale(1.01);
+    }
+    
+    .message-item.revealed {
+        border-left-color: var(--ocean-light);
+    }
+    
+    .message-content {
+        display: none;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--ocean-light);
+        font-style: italic;
+        color: var(--text-dark);
+    }
+    
+    .message-content.show {
+        display: block;
+    }
+    
+    .islamic-quote {
+        background: linear-gradient(135deg, rgba(10, 77, 125, 0.05), rgba(139, 127, 168, 0.05));
+        padding: 18px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        border-right: 4px solid var(--violet-soft);
+    }
+    
+    .arabic {
+        font-size: 1.05em;
+        color: var(--ocean-deep);
+        font-weight: 500;
+        margin-bottom: 8px;
+        font-style: italic;
+    }
+    
+    .translation {
+        color: var(--text-dark);
+        font-size: 0.92em;
+        line-height: 1.5;
+    }
+    
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+    }
+    
+    .photo-item {
+        position: relative;
+        aspect-ratio: 1;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px var(--shadow);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .photo-item:hover {
+        transform: scale(1.05);
+    }
+    
+    .photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .photo-item .delete-photo {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background: rgba(255, 255, 255, 0.95);
+        border: none;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-size: 0.85em;
+    }
+    
+    .photo-item:hover .delete-photo {
+        opacity: 1;
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 35px 20px;
+        color: var(--text-dark);
+        opacity: 0.6;
+    }
+    
+    .empty-state-icon {
+        font-size: 2.8em;
+        margin-bottom: 12px;
+    }
+    
+    #photoInput {
+        display: none;
+    }
+    
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal.show {
+        display: flex;
+    }
+    
+    .modal img {
+        max-width: 92%;
+        max-height: 92%;
+        border-radius: 12px;
+    }
+    
+    .modal-close {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        color: white;
+        font-size: 36px;
+        cursor: pointer;
+        background: var(--ocean-medium);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+    
+    .info-box {
+        background: linear-gradient(135deg, rgba(244, 164, 96, 0.1), rgba(123, 184, 227, 0.1));
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 18px;
+        border-left: 4px solid var(--sunset-gold);
+    }
+    
+    .info-box strong {
+        color: var(--ocean-deep);
+    }
+    
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-top: 15px;
+    }
+    
+    .value-card {
+        background: linear-gradient(135deg, var(--ocean-light), var(--sky-blue));
+        padding: 18px;
+        border-radius: 12px;
+        text-align: center;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .value-card .emoji {
+        font-size: 2em;
+        display: block;
+        margin-bottom: 8px;
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Ma vie 💙 My love</h1>
+            <p>Depuis le 23 avril 2025</p>
+        </header>
+
+```
+    <div class="content">
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="us">💙 Nous</button>
+            <button class="nav-tab" data-tab="marriage">💒 Mariages</button>
+            <button class="nav-tab" data-tab="rings">💍 Bagues</button>
+            <button class="nav-tab" data-tab="dates">📅 RDV</button>
+            <button class="nav-tab" data-tab="quiz">❓ Quiz</button>
+            <button class="nav-tab" data-tab="islam">🕌 Islam</button>
+            <button class="nav-tab" data-tab="messages">💌 Messages</button>
+            <button class="nav-tab" data-tab="honeymoon">✈️ Voyage</button>
+            <button class="nav-tab" data-tab="planning">👥 Organisation</button>
+            <button class="nav-tab" data-tab="photos">📸 Photos</button>
+            <button class="nav-tab" data-tab="music">🎵 Chansons</button>
+        </nav>
+        
+        <!-- Onglet Nous Deux -->
+        <div id="us" class="tab-content active">
+            <div class="countdown far">
+                <div class="countdown-number" id="daysTogether">0</div>
+                <div class="countdown-label">Jours ensemble 💙</div>
+            </div>
+            
+            <div class="card">
+                <h3>📸 Nos plus beaux souvenirs</h3>
+                <div class="carousel" id="mainCarousel">
+                    <div class="carousel-inner" id="carouselInner"></div>
+                    <button class="carousel-nav carousel-prev" onclick="prevSlide()">‹</button>
+                    <button class="carousel-nav carousel-next" onclick="nextSlide()">›</button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+                <input type="file" id="carouselInput" accept="image/*" multiple onchange="addCarouselPhotos()" style="display:none;">
+                <button class="btn btn-primary" onclick="document.getElementById('carouselInput').click()">
+                    📸 Ajouter des photos au carrousel
+                </button>
+                <p style="font-size: 0.85em; opacity: 0.7; margin-top: 10px; text-align: center;">Ajoutez jusqu'à 10 photos qui défilent automatiquement</p>
+            </div>
+            
+            <div class="card">
+                <h3>🕵🏻‍♀️ Sana & 🧑🏻‍🍳 Jules</h3>
+                <div class="info-box">
+                    <strong>Première rencontre :</strong> 23 avril 2025<br>
+                    <strong>Premier rendez-vous :</strong> 25 avril 2025
+                </div>
+                
+                <div class="info-box" style="border-left-color: var(--sunset-gold);">
+                    <strong>🌅 Notre anecdote</strong><br>
+                    On n'a jamais vu le coucher de soleil qu'il avait prévu au premier rendez-vous
+                </div>
+                
+                <div class="info-box" style="border-left-color: var(--violet-soft);">
+                    <strong>🥥 Le premier souvenir olfactif</strong><br>
+                    L'odeur de noix de coco... le parfum de notre première rencontre
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Nos 5 Valeurs 💫</h3>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="emoji">🤝</span>
+                        Respect
+                    </div>
+                    <div class="value-card">
+                        <span class="emoji">😄</span>
+                        Rire
+                    </div>
+                    <div class="value-card">
+                        <span class="emoji">🛡️</span>
+                        Rassurer
+                    </div>
+                    <div class="value-card">
+                        <span class="emoji">✨</span>
+                        Rêver
+                    </div>
+                    <div class="value-card">
+                        <span class="emoji">☀️</span>
+                        Rayonner
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Notes personnelles</h3>
+                <div class="input-group">
+                    <textarea id="usNotes" placeholder="Écrivez vos pensées, souvenirs, moments précieux..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="saveUsNotes()">💙 Sauvegarder</button>
+            </div>
+        </div>
+        
+        <!-- Onglet Mariages -->
+        <div id="marriage" class="tab-content">
+            <div class="countdown" id="religiousCountdown">
+                <div class="countdown-number" id="religiousDays">0</div>
+                <div class="countdown-label">Jours avant le mariage religieux 💒</div>
+                <div style="margin-top: 15px; font-size: 1.15em; opacity: 0.95;">27 mars 2026</div>
+            </div>
+            
+            <div class="countdown" id="civilCountdown">
+                <div class="countdown-number" id="civilDays">0</div>
+                <div class="countdown-label">Jours avant le mariage civil 🏛️</div>
+                <div style="margin-top: 15px; font-size: 1.15em; opacity: 0.95;">16 mai 2026</div>
+            </div>
+            
+            <div class="card">
+                <h3>Détails des mariages</h3>
+                <div class="info-box">
+                    <strong>Lieu :</strong> Extérieur (à définir)<br>
+                    <strong>Nombre d'invités :</strong> 40 personnes<br>
+                    <strong>Thème :</strong> Sobriété
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Préparatifs & To-Do</h3>
+                <div class="input-group">
+                    <textarea id="marriagePrep" placeholder="Liste des choses à préparer, idées, démarches..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="saveMarriagePrep()">Sauvegarder</button>
+            </div>
+        </div>
+        
+        <!-- Onglet Bagues -->
+        <div id="rings" class="tab-content">
+            <div class="card">
+                <h3>💍 Nos Bagues Cartier</h3>
+                
+                <div class="info-box">
+                    <strong>🕵🏻‍♀️ Pour Sana :</strong><br>
+                    Bague LOVE, petit modèle, 8 diamants<br>
+                    Or jaune, diamants<br>
+                    <em>Réf: CRB4056200</em>
+                </div>
+                
+                <div class="info-box" style="border-left-color: var(--ocean-light);">
+                    <strong>🧑🏻‍🍳 Pour Jules :</strong><br>
+                    Alliance Cartier d'Amour<br>
+                    Largeur 5 mm - Platine<br>
+                    <em>Réf: CRB4224200</em>
+                </div>
+                
+                <div class="info-box" style="border-left-color: var(--violet-soft);">
+                    <strong>🏬 Boutique :</strong> Cartier
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Nos rendez-vous</h3>
+                <div class="info-box">
+                    <strong>1er RDV :</strong> 30 janvier 2026 ✓<br>
+                    <strong>2ème RDV :</strong> Dimanche 8 février 2026 💍
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Notes sur les bagues</h3>
+                <div class="input-group">
+                    <textarea id="ringsNotes" placeholder="Budget, impressions, ajustements..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="saveRingsNotes()">Sauvegarder</button>
+            </div>
+        </div>
+        
+        <!-- Onglet Rendez-vous -->
+        <div id="dates" class="tab-content">
+            <div class="card">
+                <h3>Ajouter un rendez-vous</h3>
+                <div class="input-group">
+                    <label>Qui ?</label>
+                    <select id="dateWho">
+                        <option value="">Choisir...</option>
+                        <option value="🕵🏻‍♀️ Sana">🕵🏻‍♀️ Sana</option>
+                        <option value="🧑🏻‍🍳 Jules">🧑🏻‍🍳 Jules</option>
+                        <option value="💙 Nous deux">💙 Nous deux</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Date</label>
+                    <input type="date" id="dateDate">
+                </div>
+                <div class="input-group">
+                    <label>Heure</label>
+                    <input type="time" id="dateTime">
+                </div>
+                <div class="input-group">
+                    <label>Description</label>
+                    <input type="text" id="dateDesc" placeholder="Ex: Essayage bagues, dîner...">
+                </div>
+                <button class="btn btn-primary" onclick="addDate()">📅 Ajouter</button>
+            </div>
+            
+            <div class="card">
+                <h3>Nos rendez-vous</h3>
+                <div class="item-list" id="datesList"></div>
+            </div>
+        </div>
+        
+        <!-- Onglet Quiz -->
+        <div id="quiz" class="tab-content">
+            <div class="card">
+                <h3>❓ Quiz Prédiction</h3>
+                <p style="margin-bottom: 16px; font-size: 0.9em; opacity: 0.8;">Devinez ce que l'autre aime ! À qui le tour ? 🎯</p>
+                
+                <div style="background: linear-gradient(135deg, rgba(10, 77, 125, 0.1), rgba(244, 164, 96, 0.1)); padding: 18px; border-radius: 14px; margin-bottom: 20px; text-align: center;">
+                    <div style="font-size: 0.9em; margin-bottom: 8px; opacity: 0.9;">Score actuel</div>
+                    <div style="font-size: 2.5em; font-weight: 600; color: var(--ocean-deep);" id="quizScore">0/0</div>
+                </div>
+                
+                <div id="quizCard" style="background: white; padding: 20px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                    <div style="font-size: 1.1em; font-weight: 600; color: var(--ocean-deep); margin-bottom: 18px;" id="quizQuestion">Prêt à commencer ?</div>
+                    <div id="quizOptions"></div>
+                    <button class="btn btn-primary" style="margin-top: 18px;" onclick="startQuiz()" id="quizBtn">Commencer le Quiz</button>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: var(--cream); border-radius: 12px; font-size: 0.85em; opacity: 0.8;">
+                    💡 <strong>Comment ça marche ?</strong><br>
+                    On vous pose une question sur Jules ou Sana. Devinez la bonne réponse et voyez si vous vous connaissez bien ! 💙
+                </div>
+            </div>
+        </div>
+        
+        <!-- Onglet Islam -->
+        <div id="islam" class="tab-content">
+            <div class="card">
+                <h3>🕌 Citations du Coran</h3>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Wa min âyâtihi an khalaqa lakoum min anfoussikoum azwâjan li-taskunou ilayhâ</div>
+                    <div class="translation">
+                        <strong>Sourate Ar-Rum (30:21)</strong><br>
+                        "Et parmi Ses signes, Il a créé pour vous, à partir de vous-mêmes, des épouses afin que vous trouviez le calme et la tranquillité auprès d'elles"
+                    </div>
+                </div>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Hounna libasoun lakoum wa antoum libasoun lahouna</div>
+                    <div class="translation">
+                        <strong>Sourate Al-Baqarah (2:187)</strong><br>
+                        "Elles sont un vêtement pour vous et vous êtes un vêtement pour elles"
+                    </div>
+                </div>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Wa 'âshirouhounna bi-l-ma'roufi</div>
+                    <div class="translation">
+                        <strong>Sourate An-Nisa (4:19)</strong><br>
+                        "Et comportez-vous convenablement envers elles"
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>☪️ Paroles du Prophète ﷺ</h3>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Khayroukoun khayroukoun li-ahlihi wa ana khayroukoun li-ahli</div>
+                    <div class="translation">
+                        "Le meilleur d'entre vous est celui qui est le meilleur envers sa famille, et je suis le meilleur d'entre vous envers ma famille"
+                    </div>
+                </div>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Inna min akmali-l-mou'minîna îmânan ahsanouhoum khoulouqan waألطفهم bi-ahlihi</div>
+                    <div class="translation">
+                        "Les croyants qui ont la foi la plus complète sont ceux qui ont le meilleur comportement et qui sont les plus doux envers leurs épouses"
+                    </div>
+                </div>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Istaw-sou bi-n-nisâ'i khayran</div>
+                    <div class="translation">
+                        "Traitez bien les femmes"<br>
+                        <em>(Derniers conseils du Prophète ﷺ)</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🤲 Invocations du couple</h3>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Rabbanâ hab lanâ min azwâjinâ wa dhourriyyâtinâ qourrata a'youne</div>
+                    <div class="translation">
+                        <strong>Dua du Coran (25:74)</strong><br>
+                        "Seigneur, accorde-nous, en nos épouses et nos descendants, la joie des yeux"
+                    </div>
+                </div>
+                
+                <div class="islamic-quote">
+                    <div class="arabic">Allâhoumma bârik lanâ wa bârik 'alaynâ wa jma' baynanâ fî khayri</div>
+                    <div class="translation">
+                        <strong>Dua du mariage</strong><br>
+                        "Ô Allah, bénis-nous, bénis notre union et rassemble-nous dans le bien"
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Onglet Messages -->
+        <div id="messages" class="tab-content">
+            <div class="card">
+                <h3>Créer un message secret</h3>
+                <div class="input-group">
+                    <label>De</label>
+                    <select id="msgFrom">
+                        <option value="">Choisir...</option>
+                        <option value="🕵🏻‍♀️ Sana">🕵🏻‍♀️ Sana</option>
+                        <option value="🧑🏻‍🍳 Jules">🧑🏻‍🍳 Jules</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Pour</label>
+                    <select id="msgTo">
+                        <option value="">Choisir...</option>
+                        <option value="🧑🏻‍🍳 Jules (My love)">🧑🏻‍🍳 Jules (My love)</option>
+                        <option value="🕵🏻‍♀️ Sana (Ma vie / Omri)">🕵🏻‍♀️ Sana (Ma vie / Omri)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea id="msgContent" placeholder="Écris un message d'amour, une citation du Coran, un hadith..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="addMessage()">💌 Envoyer</button>
+            </div>
+            
+            <div class="card">
+                <h3>Messages secrets 🔒</h3>
+                <p style="font-size: 0.88em; opacity: 0.7; margin-bottom: 12px;">Clique pour révéler 💙</p>
+                <div class="item-list" id="messagesList"></div>
+            </div>
+        </div>
+        
+        <!-- Onglet Voyage de Noces -->
+        <div id="honeymoon" class="tab-content">
+            <div class="card">
+                <h3>✈️ Voyage de noces en Asie</h3>
+                
+                <div class="input-group">
+                    <label>Destinations envisagées</label>
+                    <textarea id="honeymoonDest" placeholder="Pays, villes, lieux..."></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label>Budget estimé (€)</label>
+                    <input type="text" id="honeymoonBudget" placeholder="Ex: 5000€">
+                </div>
+                
+                <div class="input-group">
+                    <label>Durée souhaitée</label>
+                    <input type="text" id="honeymoonDuration" placeholder="Ex: 2 semaines">
+                </div>
+                
+                <div class="input-group">
+                    <label>Activités rêvées</label>
+                    <textarea id="honeymoonActivities" placeholder="Plages, temples, cuisine locale, randonnées..."></textarea>
+                </div>
+                
+                <button class="btn btn-primary" onclick="saveHoneymoon()">Sauvegarder</button>
+            </div>
+            
+            <div class="card">
+                <h3>Idées & Inspiration</h3>
+                <div class="input-group">
+                    <textarea id="honeymoonIdeas" placeholder="Photos vues, recommandations d'amis, bucket list..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="saveHoneymoonIdeas()">Sauvegarder</button>
+            </div>
+        </div>
+        
+        <!-- Onglet Organisation -->
+        <div id="planning" class="tab-content">
+            <div class="card">
+                <h3>👥 Organisation mariage</h3>
+                
+                <div class="info-box">
+                    <strong>Nombre d'invités :</strong> 40 personnes<br>
+                    <strong>Thème :</strong> Sobriété<br>
+                    <strong>Lieu :</strong> Extérieur (à définir)
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Liste des invités</h3>
+                <div class="input-group">
+                    <label>Nom de l'invité</label>
+                    <input type="text" id="guestName" placeholder="Nom complet">
+                </div>
+                <div class="input-group">
+                    <label>Côté</label>
+                    <select id="guestSide">
+                        <option value="">Choisir...</option>
+                        <option value="Famille Sana">Famille Sana</option>
+                        <option value="Famille Jules">Famille Jules</option>
+                        <option value="Amis communs">Amis communs</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="addGuest()">Ajouter</button>
+                <div class="item-list" id="guestsList" style="margin-top: 15px;"></div>
+            </div>
+            
+            <div class="card">
+                <h3>Budget global</h3>
+                <div class="input-group">
+                    <textarea id="budgetNotes" placeholder="Détails des dépenses : lieu, traiteur, décoration..."></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="saveBudget()">Sauvegarder</button>
+            </div>
+        </div>
+        
+        <!-- Onglet Photos -->
+        <div id="photos" class="tab-content">
+            <div class="card">
+                <h3>📸 Nos souvenirs</h3>
+                <input type="file" id="photoInput" accept="image/*" multiple onchange="addPhotos()">
+                <button class="btn btn-primary" onclick="document.getElementById('photoInput').click()">
+                    Ajouter des photos
+                </button>
+                <div class="photo-grid" id="photoGallery"></div>
+            </div>
+        </div>
+        
+        <!-- Onglet Musique -->
+        <div id="music" class="tab-content">
+            <div class="card">
+                <h3>🎵 Nos chansons</h3>
+                
+                <div style="background: linear-gradient(135deg, rgba(10, 77, 125, 0.08), rgba(244, 164, 96, 0.08)); padding: 18px; border-radius: 12px; margin-bottom: 18px;">
+                    <p style="text-align: center; font-size: 1.15em; color: var(--ocean-deep); margin-bottom: 12px;">
+                        <strong>"Je ne vous parlerai pas d'elle"</strong><br>
+                        <em style="font-size: 0.9em; opacity: 0.8;">Jean-Jacques Goldman</em>
+                    </p>
+                    
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin: 15px 0;">
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            src="https://www.youtube.com/embed/nQz3i0V_b3I" 
+                            title="Je ne vous parlerai pas d'elle" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <div class="input-group" style="margin-top: 15px;">
+                        <label>💙 Message de Jules pour Sana</label>
+                        <textarea id="songMessage" placeholder="Jules, écris pourquoi cette chanson te fait penser à Sana... J'espère être celle dont tu parles 🫶"></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="saveSongMessage()">Sauvegarder</button>
+                    
+                    <div id="songMessageDisplay" style="display: none; margin-top: 15px; padding: 15px; background: white; border-radius: 10px; border-left: 4px solid var(--sunset-gold);">
+                        <strong style="color: var(--ocean-deep);">Message de Jules 🧑🏻‍🍳 :</strong>
+                        <p id="songMessageText" style="margin-top: 8px; font-style: italic;"></p>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(139, 127, 168, 0.08), rgba(123, 184, 227, 0.08)); padding: 18px; border-radius: 12px;">
+                    <p style="text-align: center; font-size: 1.15em; color: var(--ocean-deep); margin-bottom: 12px;">
+                        <strong>"Un jour je l'aurai"</strong><br>
+                        <em style="font-size: 0.9em; opacity: 0.8;">JUL</em>
+                    </p>
+                    
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); margin: 15px 0;">
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            src="https://www.youtube.com/embed/CEmuZ81qz2w" 
+                            title="Un jour je l'aurai - JUL" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid var(--violet-soft);">
+                        <strong style="color: var(--ocean-deep);">🏍️ Notre histoire</strong><br>
+                        <p style="margin-top: 8px; font-style: italic; color: var(--text-dark);">
+                            La première fois en moto, j'ai mis cette chanson... Quelque part, je savais qu'on finirait ensemble
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📝 Notre playlist</h3>
+                <div class="input-group">
+                    <input type="text" id="playlistSong" placeholder="Titre - Artiste">
+                </div>
+                <button class="btn btn-primary" onclick="addPlaylistSong()">Ajouter</button>
+                <div class="item-list" id="playlistList"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="photoModal" class="modal">
+    <button class="modal-close" onclick="closePhotoModal()">×</button>
+    <img id="modalImage" src="" alt="">
+</div>
+
+<script>
+    // Navigation tabs
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+    
+    // Storage functions
+    function saveData(key, data) {
+        localStorage.setItem(key, JSON.stringify(data));
+    }
+    
+    function loadData(key) {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    }
+    
+    // Calculate days together
+    function updateDaysTogether() {
+        const meetDate = new Date('2025-04-23');
+        const now = new Date();
+        const diff = Math.floor((now - meetDate) / (1000 * 60 * 60 * 24));
+        document.getElementById('daysTogether').textContent = diff > 0 ? diff : 0;
+    }
+    
+    // Calculate days to marriages
+    function updateMarriageCountdowns() {
+        const religious = new Date('2026-03-27');
+        const civil = new Date('2026-05-16');
+        const now = new Date();
+        
+        const religiousDiff = Math.ceil((religious - now) / (1000 * 60 * 60 * 24));
+        const civilDiff = Math.ceil((civil - now) / (1000 * 60 * 60 * 24));
+        
+        document.getElementById('religiousDays').textContent = religiousDiff > 0 ? religiousDiff : '🎉';
+        document.getElementById('civilDays').textContent = civilDiff > 0 ? civilDiff : '🎉';
+        
+        // Ajouter les couleurs selon l'urgence
+        const religiousEl = document.getElementById('religiousCountdown');
+        const civilEl = document.getElementById('civilCountdown');
+        
+        // Fonction pour définir la couleur
+        function setCountdownColor(element, days) {
+            element.classList.remove('urgent', 'soon', 'far');
+            if (days <= 30) {
+                element.classList.add('urgent');
+            } else if (days <= 60) {
+                element.classList.add('soon');
+            } else {
+                element.classList.add('far');
+            }
+        }
+        
+        setCountdownColor(religiousEl, religiousDiff);
+        setCountdownColor(civilEl, civilDiff);
+    }
+    
+    // Us notes
+    function saveUsNotes() {
+        const notes = document.getElementById('usNotes').value;
+        saveData('usNotes', notes);
+        alert('Notes sauvegardées ! 💙');
+    }
+    
+    function loadUsNotes() {
+        const notes = loadData('usNotes');
+        if (notes) document.getElementById('usNotes').value = notes;
+    }
+    
+    // Marriage prep
+    function saveMarriagePrep() {
+        const prep = document.getElementById('marriagePrep').value;
+        saveData('marriagePrep', prep);
+        alert('Préparatifs sauvegardés !');
+    }
+    
+    function loadMarriagePrep() {
+        const prep = loadData('marriagePrep');
+        if (prep) document.getElementById('marriagePrep').value = prep;
+    }
+    
+    // Rings notes
+    function saveRingsNotes() {
+        const notes = document.getElementById('ringsNotes').value;
+        saveData('ringsNotes', notes);
+        alert('Notes sauvegardées !');
+    }
+    
+    function loadRingsNotes() {
+        const notes = loadData('ringsNotes');
+        if (notes) document.getElementById('ringsNotes').value = notes;
+    }
+    
+    // Dates
+    function addDate() {
+        const who = document.getElementById('dateWho').value;
+        const date = document.getElementById('dateDate').value;
+        const time = document.getElementById('dateTime').value;
+        const desc = document.getElementById('dateDesc').value;
+        
+        if (!who || !date || !time) {
+            alert('Veuillez remplir tous les champs');
+            return;
+        }
+        
+        const dates = loadData('dates') || [];
+        dates.push({ who, date, time, desc, id: Date.now() });
+        saveData('dates', dates);
+        
+        document.getElementById('dateWho').value = '';
+        document.getElementById('dateDate').value = '';
+        document.getElementById('dateTime').value = '';
+        document.getElementById('dateDesc').value = '';
+        
+        loadDates();
+    }
+    
+    function deleteDate(id) {
+        let dates = loadData('dates') || [];
+        dates = dates.filter(d => d.id !== id);
+        saveData('dates', dates);
+        loadDates();
+    }
+    
+    function loadDates() {
+        const dates = loadData('dates') || [];
+        const list = document.getElementById('datesList');
+        
+        if (dates.length === 0) {
+            list.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📅</div><p>Aucun rendez-vous</p></div>';
+            return;
+        }
+        
+        dates.sort((a, b) => new Date(a.date + ' ' + a.time) - new Date(b.date + ' ' + b.time));
+        
+        list.innerHTML = dates.map(d => `
+            <div class="list-item">
+                <div>
+                    <strong>${d.who}</strong>
+                    <div>${new Date(d.date).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })} à ${d.time}</div>
+                    ${d.desc ? `<div style="margin-top: 4px; font-size: 0.9em; opacity: 0.8;">${d.desc}</div>` : ''}
+                </div>
+                <button class="btn btn-delete" onclick="deleteDate(${d.id})">🗑️</button>
+            </div>
+        `).join('');
+    }
+    
+    // Messages
+    function addMessage() {
+        const from = document.getElementById('msgFrom').value;
+        const to = document.getElementById('msgTo').value;
+        const content = document.getElementById('msgContent').value;
+        
+        if (!from || !to || !content) {
+            alert('Veuillez remplir tous les champs');
+            return;
+        }
+        
+        const messages = loadData('messages') || [];
+        messages.push({ from, to, content, id: Date.now(), revealed: false });
+        saveData('messages', messages);
+        
+        document.getElementById('msgFrom').value = '';
+        document.getElementById('msgTo').value = '';
+        document.getElementById('msgContent').value = '';
+        
+        loadMessages();
+        alert('Message envoyé ! 💌');
+    }
+    
+    function revealMessage(id) {
+        const messages = loadData('messages') || [];
+        const msg = messages.find(m => m.id === id);
+        if (msg && !msg.revealed) {
+            msg.revealed = true;
+            saveData('messages', messages);
+            loadMessages();
+        }
+    }
+    
+    function deleteMessage(id) {
+        let messages = loadData('messages') || [];
+        messages = messages.filter(m => m.id !== id);
+        saveData('messages', messages);
+        loadMessages();
+    }
+    
+    function loadMessages() {
+        const messages = loadData('messages') || [];
+        const list = document.getElementById('messagesList');
+        
+        if (messages.length === 0) {
+            list.innerHTML = '<div class="empty-state"><div class="empty-state-icon">💌</div><p>Aucun message</p></div>';
+            return;
+        }
+        
+        list.innerHTML = messages.map(m => `
+            <div class="message-item ${m.revealed ? 'revealed' : ''}" onclick="revealMessage(${m.id})">
+                <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong>De ${m.from} pour ${m.to}</strong>
+                        ${!m.revealed ? '<div style="opacity: 0.6; margin-top: 4px;">🔒 Message secret - Clique pour révéler</div>' : ''}
+                    </div>
+                    <button class="btn btn-delete" onclick="event.stopPropagation(); deleteMessage(${m.id})">🗑️</button>
+                </div>
+                <div class="message-content ${m.revealed ? 'show' : ''}">${m.content}</div>
+            </div>
+        `).join('');
+    }
+    
+    // Honeymoon
+    function saveHoneymoon() {
+        const data = {
+            dest: document.getElementById('honeymoonDest').value,
+            budget: document.getElementById('honeymoonBudget').value,
+            duration: document.getElementById('honeymoonDuration').value,
+            activities: document.getElementById('honeymoonActivities').value
+        };
+        saveData('honeymoon', data);
+        alert('Voyage sauvegardé ! ✈️');
+    }
+    
+    function saveHoneymoonIdeas() {
+        const ideas = document.getElementById('honeymoonIdeas').value;
+        saveData('honeymoonIdeas', ideas);
+        alert('Idées sauvegardées !');
+    }
+    
+    function loadHoneymoon() {
+        const data = loadData('honeymoon');
+        if (data) {
+            if (data.dest) document.getElementById('honeymoonDest').value = data.dest;
+            if (data.budget) document.getElementById('honeymoonBudget').value = data.budget;
+            if (data.duration) document.getElementById('honeymoonDuration').value = data.duration;
+            if (data.activities) document.getElementById('honeymoonActivities').value = data.activities;
+        }
+        
+        const ideas = loadData('honeymoonIdeas');
+        if (ideas) document.getElementById('honeymoonIdeas').value = ideas;
+    }
+    
+    // Guests
+    function addGuest() {
+        const name = document.getElementById('guestName').value;
+        const side = document.getElementById('guestSide').value;
+        
+        if (!name || !side) {
+            alert('Veuillez remplir tous les champs');
+            return;
+        }
+        
+        const guests = loadData('guests') || [];
+        guests.push({ name, side, id: Date.now() });
+        saveData('guests', guests);
+        
+        document.getElementById('guestName').value = '';
+        document.getElementById('guestSide').value = '';
+        
+        loadGuests();
+    }
+    
+    function deleteGuest(id) {
+        let guests = loadData('guests') || [];
+        guests = guests.filter(g => g.id !== id);
+        saveData('guests', guests);
+        loadGuests();
+    }
+    
+    function loadGuests() {
+        const guests = loadData('guests') || [];
+        const list = document.getElementById('guestsList');
+        
+        if (guests.length === 0) {
+            list.innerHTML = '<div class="empty-state"><div class="empty-state-icon">👥</div><p>Aucun invité</p></div>';
+            return;
+        }
+        
+        list.innerHTML = guests.map(g => `
+            <div class="list-item">
+                <div>
+                    <strong>${g.name}</strong>
+                    <div style="font-size: 0.9em; opacity: 0.8;">${g.side}</div>
+                </div>
+                <button class="btn btn-delete" onclick="deleteGuest(${g.id})">🗑️</button>
+            </div>
+        `).join('');
+    }
+    
+    function saveBudget() {
+        const budget = document.getElementById('budgetNotes').value;
+        saveData('budget', budget);
+        alert('Budget sauvegardé !');
+    }
+    
+    function loadBudget() {
+        const budget = loadData('budget');
+        if (budget) document.getElementById('budgetNotes').value = budget;
+    }
+    
+    // Photos
+    function addPhotos() {
+        const files = document.getElementById('photoInput').files;
+        const photos = loadData('photos') || [];
+        
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                photos.push({ src: e.target.result, id: Date.now() + Math.random() });
+                saveData('photos', photos);
+                loadPhotos();
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+    
+    function deletePhoto(id) {
+        let photos = loadData('photos') || [];
+        photos = photos.filter(p => p.id !== id);
+        saveData('photos', photos);
+        loadPhotos();
+    }
+    
+    function openPhotoModal(src) {
+        document.getElementById('modalImage').src = src;
+        document.getElementById('photoModal').classList.add('show');
+    }
+    
+    function closePhotoModal() {
+        document.getElementById('photoModal').classList.remove('show');
+    }
+    
+    function loadPhotos() {
+        const photos = loadData('photos') || [];
+        const gallery = document.getElementById('photoGallery');
+        
+        if (photos.length === 0) {
+            gallery.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📸</div><p>Aucune photo</p></div>';
+            return;
+        }
+        
+        gallery.innerHTML = photos.map(p => `
+            <div class="photo-item">
+                <img src="${p.src}" alt="Photo" onclick="openPhotoModal('${p.src}')">
+                <button class="delete-photo" onclick="event.stopPropagation(); deletePhoto(${p.id})">🗑️</button>
+            </div>
+        `).join('');
+    }
+    
+    // Music
+    function saveSongMessage() {
+        const msg = document.getElementById('songMessage').value;
+        if (!msg.trim()) {
+            alert('Veuillez écrire un message');
+            return;
+        }
+        saveData('songMessage', msg);
+        loadSongMessage();
+        alert('Message sauvegardé ! 🎵');
+    }
+    
+    function loadSongMessage() {
+        const msg = loadData('songMessage');
+        if (msg) {
+            document.getElementById('songMessage').value = msg;
+            document.getElementById('songMessageDisplay').style.display = 'block';
+            document.getElementById('songMessageText').textContent = msg;
+        }
+    }
+    
+    function addPlaylistSong() {
+        const song = document.getElementById('playlistSong').value;
+        if (!song.trim()) {
+            alert('Veuillez entrer une chanson');
+            return;
+        }
+        
+        const playlist = loadData('playlist') || [];
+        playlist.push({ song, id: Date.now() });
+        saveData('playlist', playlist);
+        
+        document.getElementById('playlistSong').value = '';
+        loadPlaylist();
+    }
+    
+    function deletePlaylistSong(id) {
+        let playlist = loadData('playlist') || [];
+        playlist = playlist.filter(s => s.id !== id);
+        saveData('playlist', playlist);
+        loadPlaylist();
+    }
+    
+    function loadPlaylist() {
+        const playlist = loadData('playlist') || [];
+        const list = document.getElementById('playlistList');
+        
+        if (playlist.length === 0) {
+            list.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🎵</div><p>Aucune chanson</p></div>';
+            return;
+        }
+        
+        list.innerHTML = playlist.map(s => `
+            <div class="list-item">
+                <div><strong>🎶 ${s.song}</strong></div>
+                <button class="btn btn-delete" onclick="deletePlaylistSong(${s.id})">🗑️</button>
+            </div>
+        `).join('');
+    }
+    
+    // Modal close on outside click
+    document.getElementById('photoModal').addEventListener('click', (e) => {
+        if (e.target.id === 'photoModal') closePhotoModal();
+    });
+    
+    // Load all data on start
+    window.addEventListener('load', () => {
+        updateDaysTogether();
+        updateMarriageCountdowns();
+        loadUsNotes();
+        loadMarriagePrep();
+        loadRingsNotes();
+        loadDates();
+        loadMessages();
+        loadHoneymoon();
+        loadGuests();
+        loadBudget();
+        loadPhotos();
+        loadSongMessage();
+        loadPlaylist();
+        loadCarousel();
+        
+        // Update countdowns daily
+        setInterval(() => {
+            updateDaysTogether();
+            updateMarriageCountdowns();
+        }, 60000 * 60); // Every hour
+        
+        // Auto-advance carousel
+        setInterval(() => {
+            nextSlide();
+        }, 4000); // Every 4 seconds
+    });
+    
+    // CARROUSEL FUNCTIONS
+    let currentSlide = 0;
+    
+    function addCarouselPhotos() {
+        const files = document.getElementById('carouselInput').files;
+        const carousel = loadData('carousel') || [];
+        
+        if (carousel.length + files.length > 10) {
+            alert('Maximum 10 photos dans le carrousel !');
+            return;
+        }
+        
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                carousel.push({ src: e.target.result, id: Date.now() + Math.random() });
+                saveData('carousel', carousel);
+                loadCarousel();
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+    
+    function loadCarousel() {
+        const carousel = loadData('carousel') || [];
+        const inner = document.getElementById('carouselInner');
+        const dots = document.getElementById('carouselDots');
+        
+        if (carousel.length === 0) {
+            inner.innerHTML = '<div class="carousel-item" style="display:flex;align-items:center;justify-content:center;background:var(--cream);"><div style="text-align:center;padding:40px;"><div style="font-size:3em;margin-bottom:15px;">📸</div><div style="opacity:0.7;">Aucune photo dans le carrousel</div><div style="font-size:0.85em;opacity:0.6;margin-top:10px;">Ajoutez vos plus beaux souvenirs !</div></div></div>';
+            dots.innerHTML = '';
+            return;
+        }
+        
+        inner.innerHTML = carousel.map(p => `
+            <div class="carousel-item">
+                <img src="${p.src}" alt="Photo">
+            </div>
+        `).join('');
+        
+        dots.innerHTML = carousel.map((_, i) => `
+            <div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></div>
+        `).join('');
+        
+        currentSlide = 0;
+        updateCarousel();
+    }
+    
+    function updateCarousel() {
+        const carousel = loadData('carousel') || [];
+        if (carousel.length === 0) return;
+        
+        const inner = document.getElementById('carouselInner');
+        inner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+    
+    function nextSlide() {
+        const carousel = loadData('carousel') || [];
+        if (carousel.length === 0) return;
+        
+        currentSlide = (currentSlide + 1) % carousel.length;
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        const carousel = loadData('carousel') || [];
+        if (carousel.length === 0) return;
+        
+        currentSlide = (currentSlide - 1 + carousel.length) % carousel.length;
+        updateCarousel();
+    }
+    
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+    
+    // QUIZ FUNCTIONS
+    const quizQuestions = [
+        {q: "Quel est le plat préféré de Jules ?", options: ["Couscous", "Pizza", "Sushi", "Pasta"], answer: 1, about: "Jules"},
+        {q: "Quelle est la couleur préférée de Sana ?", options: ["Bleu", "Rose", "Violet", "Vert"], answer: 0, about: "Sana"},
+        {q: "Quel est le film préféré de Jules ?", options: ["Inception", "Interstellar", "The Dark Knight", "Gladiator"], answer: 2, about: "Jules"},
+        {q: "Quel est le dessert favori de Sana ?", options: ["Tiramisu", "Cheesecake", "Macaron", "Éclair"], answer: 1, about: "Sana"},
+        {q: "Quel sport Jules aime-t-il pratiquer ?", options: ["Football", "Tennis", "Basketball", "Natation"], answer: 1, about: "Jules"},
+        {q: "Quelle est la saison préférée de Sana ?", options: ["Printemps", "Été", "Automne", "Hiver"], answer: 1, about: "Sana"},
+        {q: "Quelle musique Jules écoute-t-il le plus ?", options: ["Rap français", "Pop", "Rock", "Jazz"], answer: 0, about: "Jules"},
+        {q: "Quel est le parfum préféré de Sana ?", options: ["Vanille", "Noix de coco", "Rose", "Jasmin"], answer: 1, about: "Sana"},
+        {q: "Quel est le hobbie préféré de Jules ?", options: ["Cuisine", "Gaming", "Lecture", "Sport"], answer: 0, about: "Jules"},
+        {q: "Quelle destination Sana rêve-t-elle de visiter ?", options: ["Japon", "Maldives", "Italie", "Bali"], answer: 0, about: "Sana"},
+        {q: "Quel est l'animal préféré de Jules ?", options: ["Chien", "Chat", "Lion", "Aigle"], answer: 0, about: "Jules"},
+        {q: "Quelle série Sana adore-t-elle ?", options: ["Friends", "Grey's Anatomy", "Suits", "Breaking Bad"], answer: 1, about: "Sana"},
+        {q: "Quelle est la boisson préférée de Jules ?", options: ["Café", "Thé", "Coca", "Jus d'orange"], answer: 0, about: "Jules"},
+        {q: "Quel type de livre Sana préfère-t-elle ?", options: ["Romance", "Thriller", "Fantasy", "Biography"], answer: 0, about: "Sana"},
+        {q: "Quel est le jeu vidéo favori de Jules ?", options: ["FIFA", "COD", "GTA", "Fortnite"], answer: 0, about: "Jules"},
+        {q: "Quelle est l'activité relaxante préférée de Sana ?", options: ["Yoga", "Lecture", "Shopping", "Spa"], answer: 3, about: "Sana"},
+        {q: "Quelle est la qualité que Jules admire le plus chez Sana ?", options: ["Sa gentillesse", "Son humour", "Son intelligence", "Sa beauté"], answer: 0, about: "Jules"},
+        {q: "Quelle est la qualité que Sana admire le plus chez Jules ?", options: ["Sa patience", "Son ambition", "Sa générosité", "Son humour"], answer: 3, about: "Sana"},
+        {q: "Quel est le rêve professionnel de Jules ?", options: ["Chef cuisinier", "Entrepreneur", "Ingénieur", "Médecin"], answer: 1, about: "Jules"},
+        {q: "Combien d'enfants Sana souhaite-t-elle avoir ?", options: ["2", "3", "4", "Elle ne sait pas encore"], answer: 0, about: "Sana"}
+    ];
+    
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let quizTotal = 0;
+    
+    function startQuiz() {
+        const savedProgress = loadData('quizProgress');
+        if (savedProgress) {
+            currentQuizIndex = savedProgress.index || 0;
+            quizScore = savedProgress.score || 0;
+            quizTotal = savedProgress.total || 0;
+        }
+        showQuestion();
+    }
+    
+    function showQuestion() {
+        if (currentQuizIndex >= quizQuestions.length) {
+            document.getElementById('quizQuestion').textContent = '🎉 Quiz terminé !';
+            document.getElementById('quizOptions').innerHTML = `
+                <div style="text-align:center;padding:20px;">
+                    <div style="font-size:1.2em;margin-bottom:15px;">Vous avez terminé toutes les questions !</div>
+                    <div style="font-size:0.9em;opacity:0.8;">Continuez à apprendre l'un sur l'autre chaque jour 💙</div>
+                </div>
+            `;
+            document.getElementById('quizBtn').style.display = 'none';
+            return;
+        }
+        
+        const question = quizQuestions[currentQuizIndex];
+        document.getElementById('quizQuestion').textContent = question.q;
+        document.getElementById('quizScore').textContent = `${quizScore}/${quizTotal}`;
+        
+        const optionsHtml = question.options.map((opt, i) => `
+            <div class="list-item" style="cursor:pointer;transition:all 0.3s;" onclick="selectAnswer(${i})">
+                ${opt}
+            </div>
+        `).join('');
+        
+        document.getElementById('quizOptions').innerHTML = optionsHtml;
+        document.getElementById('quizBtn').textContent = 'Valider';
+        document.getElementById('quizBtn').onclick = () => checkAnswer(question.answer);
+    }
+    
+    function selectAnswer(index) {
+        document.querySelectorAll('#quizOptions .list-item').forEach((el, i) => {
+            el.style.borderColor = i === index ? 'var(--ocean-deep)' : 'transparent';
+            el.style.background = i === index ? 'linear-gradient(135deg, rgba(10, 77, 125, 0.1), rgba(74, 155, 207, 0.1))' : 'var(--cream)';
+        });
+        window.selectedQuizAnswer = index;
+    }
+    
+    function checkAnswer(correctAnswer) {
+        if (window.selectedQuizAnswer === undefined) {
+            alert('Choisissez une réponse !');
+            return;
+        }
+        
+        quizTotal++;
+        const isCorrect = window.selectedQuizAnswer === correctAnswer;
+        if (isCorrect) quizScore++;
+        
+        document.querySelectorAll('#quizOptions .list-item').forEach((el, i) => {
+            if (i === correctAnswer) {
+                el.style.borderColor = '#4caf50';
+                el.style.background = 'linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.3))';
+            } else if (i === window.selectedQuizAnswer) {
+                el.style.borderColor = '#f44336';
+                el.style.background = 'linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.3))';
+            }
+        });
+        
+        document.getElementById('quizScore').textContent = `${quizScore}/${quizTotal}`;
+        document.getElementById('quizBtn').textContent = 'Question suivante';
+        document.getElementById('quizBtn').onclick = nextQuizQuestion;
+        
+        saveData('quizProgress', {
+            index: currentQuizIndex,
+            score: quizScore,
+            total: quizTotal
+        });
+    }
+    
+    function nextQuizQuestion() {
+        currentQuizIndex++;
+        window.selectedQuizAnswer = undefined;
+        
+        saveData('quizProgress', {
+            index: currentQuizIndex,
+            score: quizScore,
+            total: quizTotal
+        });
+        
+        showQuestion();
+    }
+</script>
+```
+
+</body>
+</html>
